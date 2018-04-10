@@ -21,5 +21,23 @@
             console.log("Unable to perform get request");
         });
       };
+
+      $scope.updateSolve = function(obj){
+        console.log(obj);
+        var updatedIssue = {
+          title: obj.title,
+          description: obj.description,
+          assignedTo: obj.assignedTo,
+          solved: obj.solved
+        }
+        $http.put("http://localhost:4000/api/issues/"+obj._id, updatedIssue)
+          .then(function(response){
+            console.log(response);
+            $scope.getRequest();
+          },
+          function(err){
+            console.log(err);
+          });
+      }
     }
 })();

@@ -13,7 +13,7 @@
       <p>Description: {{obj.description}}</p>
       <p>Created At: {{obj.createdAt}}</p>
       <p>Assigned To: {{obj.assignedTo}}</p>
-      <p>Solved: <input type="checkbox" ng-model="obj.solved"></p>
+      <p>Solved: <input type="checkbox" ng-model="obj.solved" ng-click="updateSolve(obj)"></p>
       <!-- <div class="remove" ng-click="">
         X
       </div> -->
