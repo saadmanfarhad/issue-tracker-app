@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='myIssueTrackerApp'>
+<html lang="en" ng-app='app'>
   <head>
     <title>AngularJS</title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css"/>
@@ -7,30 +7,16 @@
     <script src="app\lib\angular-route.min.js"></script>
     <script src="app\lib\angular-resource.min.js"></script>
     <script src="app\lib\toaster.js"></script>
-    <script src="app\app.js"></script>
-    <script src="app\issues.js"></script>
+    <script src="app\app.module.js"></script>
+    <script src="app\home\home.module.js"></script>
+    <script src="app\home\home.controller.js"></script>
+    <script src="app\home\home.service.js"></script>
+    <script src="app\issue\issue.module.js"></script>
+    <script src="app\issue\issue.controller.js"></script>
+    <!-- <script src="app\issue\home.service.js"></script> -->
   </head>
   <body>
     <header ng-include="'header.html'"></header>
-    <!-- <main ng-view></main> -->
-    <div class="content" ng-controller="IssuesCtrl">
-      <h1>Players</h1>
-      <button ng-click="order= 'name'">Order by Name</button>
-      <button ng-click="order= 'foot'">Order by Foot</button>
-      <input type="text" ng-model="search" placeholder="Search for a player"/>
-      <ul>
-        <li ng-repeat="issue in issues | orderBy: order | filter: search">
-          <h3>{{issue.name}} - {{issue.details}}</h3>
-          <div class="remove" ng-click="">
-            X
-          </div>
-        </li>
-      </ul>
-      <form ng-submit="addPlayer()">
-        <input type="text" placeholder="name" ng-model="newPlayer.name"/>
-        <input type="text" placeholder="foot" ng-model="newPlayer.foot"/>
-        <input type="submit" value="Add new player"/>
-      </form>
-    </div>
+    <main ng-view></main>
   </body>
 </html>

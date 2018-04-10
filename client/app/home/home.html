@@ -1,0 +1,28 @@
+<div class="content" ng-controller="HomeController">
+  <input type="text" ng-model="search.title" placeholder="Search Issue using title"/>
+  <!-- <button ng-click="order= '-title'">Order by Name</button>
+  <button ng-click="order= '-description'">Order by Foot</button> -->
+  <h3 class='sort-header'>Sort By</h3>
+  <select ng-model="sortBy">
+    <option ng-selected="true" value="title">Title</option>
+    <option value="createdAt">Created At</option>
+  </select>
+  <ul ng-init=getRequest()>
+    <li ng-repeat="obj in objs | orderBy: sortBy | filter: search">
+      <p>Title: {{obj.title}}</p>
+      <p>Description: {{obj.description}}</p>
+      <p>Created At: {{obj.createdAt}}</p>
+      <p>Assigned To: {{obj.assignedTo}}</p>
+      <p>Solved: <input type="checkbox" ng-model="obj.solved"></p>
+      <!-- <div class="remove" ng-click="">
+        X
+      </div> -->
+      <button class="remove" type="button" name="button">Edit</button>
+    </li>
+  </ul>
+  <!-- <form ng-submit="addPlayer()">
+    <input type="text" placeholder="name" ng-model="newPlayer.name"/>
+    <input type="text" placeholder="foot" ng-model="newPlayer.foot"/>
+    <input type="submit" value="Add new player"/>
+  </form> -->
+</div>

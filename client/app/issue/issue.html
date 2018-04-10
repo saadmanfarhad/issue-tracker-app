@@ -1,0 +1,19 @@
+<div class="content" ng-controller="IssueController">
+  <form name="issueForm" novalidate>
+    <input type="text" placeholder="Issue Name" name="name" ng-model="title" ng-required="true">
+    <div ng-show="issueForm.name.$touched && issueForm.name.$invalid">
+      <small style="color: red; display: block; text-align: center;">Enter a valid name</small>
+    </div>
+    <input type="text" placeholder="Issue Details" name="details" ng-model="description" ng-required="true">
+    <div ng-show="issueForm.details.$touched && issueForm.details.$invalid">
+      <small style="color: red; display: block; text-align: center;">Enter details</small>
+    </div>
+    <input type="text" placeholder="Assigned To" name="details" ng-model="assignedTo" ng-required="true">
+    <select ng-model="category">
+      <option value="" selected disabled hidden>Select Category</option>
+      <option value="frontend">Front-End</option>
+      <option value="backend">Backend</option>
+    </select>
+    <input type="submit" value="Add" ng-disabled="issueForm.$invalid" ng-click="sendData()">
+  </form>
+</div>
