@@ -6,13 +6,14 @@
     ];
     /* @ngInject */
     function IssueController($scope,$http, $location) {
-      $scope.sendData = function () {
-       // use $.param jQuery function to serialize data from JSON
+      var vm = this;
+
+      vm.sendData = function () {
         var issue = {
-            title: $scope.title,
-            description: $scope.description,
-            assignedTo: $scope.assignedTo,
-            category: $scope.category
+            title: vm.title,
+            description: vm.description,
+            assignedTo: vm.assignedTo,
+            category: vm.category
         };
 
 

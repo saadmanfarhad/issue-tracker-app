@@ -1,19 +1,19 @@
-<div class="content" ng-controller="IssueController">
+<div class="content" ng-controller="IssueController as vm">
   <form name="issueForm" novalidate>
-    <input type="text" placeholder="Issue Name" name="name" ng-model="title" ng-required="true">
+    <input type="text" placeholder="Issue Name" name="name" ng-model="vm.title" ng-required="true">
     <div ng-show="issueForm.name.$touched && issueForm.name.$invalid">
       <small style="color: red; display: block; text-align: center;">Enter a valid name</small>
     </div>
-    <input type="text" placeholder="Issue Details" name="details" ng-model="description" ng-required="true">
+    <input type="text" placeholder="Issue Details" name="details" ng-model="vm.description" ng-required="true">
     <div ng-show="issueForm.details.$touched && issueForm.details.$invalid">
       <small style="color: red; display: block; text-align: center;">Enter details</small>
     </div>
-    <input type="text" placeholder="Assigned To" name="details" ng-model="assignedTo" ng-required="true">
-    <select ng-model="category" ng-required="true">
+    <input type="text" placeholder="Assigned To" name="details" ng-model="vm.assignedTo" ng-required="true">
+    <select ng-model="vm.category" ng-required="true">
       <option value="" selected disabled hidden>Select Category</option>
       <option value="frontend">Front-End</option>
       <option value="backend">Backend</option>
     </select>
-    <input class="add-btn" type="submit" value="Add" ng-disabled="issueForm.$invalid" ng-click="sendData()">
+    <input class="add-btn" type="submit" value="Add" ng-disabled="issueForm.$invalid" ng-click="vm.sendData()">
   </form>
 </div>

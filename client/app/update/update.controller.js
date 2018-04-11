@@ -7,16 +7,16 @@
     /* @ngInject */
     function UpdateController($scope,$http,$routeParams,$location) {
       const id = $routeParams.id;
-      //console.log(id);
+      var vm = this;
 
-      $scope.updateData = function () {
+      vm.updateData = function () {
        // use $.param jQuery function to serialize data from JSON
         var updatedIssue = {
-            title: $scope.title,
-            description: $scope.description,
-            assignedTo: $scope.assignedTo,
-            category: $scope.category,
-            solved: $scope.solved
+            title: vm.title,
+            description: vm.description,
+            assignedTo: vm.assignedTo,
+            category: vm.category,
+            solved: vm.solved
         };
 
         $http.put("http://localhost:4000/api/issues/"+id, updatedIssue)
@@ -29,7 +29,7 @@
           });
       };
 
-      $scope.deleteData = function () {
+      vm.deleteData = function () {
        // use $.param jQuery function to serialize data from JSON
         $http.delete("http://localhost:4000/api/issues/"+id)
           .then(function(response){
@@ -41,15 +41,15 @@
           });
       };
 
-      $scope.getData = function() {
+      vm.getData = function() {
         $http.get("http://localhost:4000/api/issues/"+id)
           .then(function successCallback(response){
             //console.log(response.data);
-            $scope.title= response.data.title;
-            $scope.assignedTo = response.data.assignedTo;
-            $scope.description = response.data.description;
-            $scope.category = response.data.category;
-            $scope.solved = response.data.solved;
+            vm.title= response.data.title;
+            vm.assignedTo = response.data.assignedTo;
+            vm.description = response.data.description;
+            vm.category = response.data.category;
+            vm.solved = response.data.solved;
           }, function errorCallback(response){
             console.log("Unable to perform get request");
           });

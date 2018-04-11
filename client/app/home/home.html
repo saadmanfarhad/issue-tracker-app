@@ -1,24 +1,24 @@
-<div class="content" ng-controller="HomeController">
+<div class="content" ng-controller="HomeController as vm">
   <input type="text" ng-model="search.title" placeholder="Search Issue using title"/>
   <!-- <button ng-click="order= '-title'">Order by Name</button>
   <button ng-click="order= '-description'">Order by Foot</button> -->
   <h3 class='sort-header'>Sort By</h3>
-  <select ng-model="sortBy">
+  <select ng-model="vm.sortBy">
     <option ng-selected="true" value="title">Title</option>
     <option value="createdAt">Created At</option>
   </select>
-  <ul ng-init=getRequest()>
-    <li ng-repeat="obj in objs | orderBy: sortBy | filter: search">
+  <ul ng-init=vm.getRequest()>
+    <li ng-repeat="obj in vm.objs | orderBy: vm.sortBy | filter: search">
       <p>Title: {{obj.title}}</p>
       <p>Description: {{obj.description}}</p>
       <p>Created At: {{obj.createdAt}}</p>
       <p>Updated At: {{obj.updatedAt}}</p>
       <p>Assigned To: {{obj.assignedTo}}</p>
-      <p>Solved: <input type="checkbox" ng-model="obj.solved" ng-click="updateSolve(obj)"></p>
+      <p>Solved: <input type="checkbox" ng-model="obj.solved" ng-click="vm.updateSolve(obj)"></p>
       <!-- <div class="remove" ng-click="">
         X
       </div> -->
-      <button class="remove" type="button" name="button" ng-click="changeView(obj._id)">Edit</button>
+      <button class="remove" type="button" name="button" ng-click="vm.changeView(obj._id)">Edit</button>
     </li>
   </ul>
   <!-- <form ng-submit="addPlayer()">
