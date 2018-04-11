@@ -119,11 +119,11 @@ main{
   margin: 10px 0;
 }
 
-.content input[type="submit"]:last-child{
+/* .content input[type="submit"]:last-child{
   width: 150px;
-  display: block;
-  margin: 15px auto;
-}
+  display: inline-block;
+  margin-left: 400px;
+} */
 
 .remove{
   padding: 15px;
@@ -133,6 +133,31 @@ main{
   border-radius: 10px;
   color: crimson;
   cursor: pointer;
+}
+
+.update-btn-container {
+  display:inline-block;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.update-btn {
+  display: inline-block;
+  width: 150px;
+}
+
+.add-btn {
+  width: 150px;
+  text-align: center;
+  display: block;
+  margin-top: 25px;
+  margin-left: 260px;
+}
+
+.del-btn {
+  width: 150px;
+  margin-left: 400px;
+  display: inline-block;
 }
 
 input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {

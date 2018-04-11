@@ -12,12 +12,13 @@
       <p>Title: {{obj.title}}</p>
       <p>Description: {{obj.description}}</p>
       <p>Created At: {{obj.createdAt}}</p>
+      <p>Updated At: {{obj.updatedAt}}</p>
       <p>Assigned To: {{obj.assignedTo}}</p>
       <p>Solved: <input type="checkbox" ng-model="obj.solved" ng-click="updateSolve(obj)"></p>
       <!-- <div class="remove" ng-click="">
         X
       </div> -->
-      <button class="remove" type="button" name="button">Edit</button>
+      <button class="remove" type="button" name="button" ng-click="changeView(obj._id)">Edit</button>
     </li>
   </ul>
   <!-- <form ng-submit="addPlayer()">
